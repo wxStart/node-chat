@@ -18,17 +18,18 @@ Chat.prototype.changeRoom = function(room) {
 
 Chat.prototype.processCommand = function(command) {
   const words = command.split(" ");
+  console.log(words);
   const cmd = words[0].substring(1, words[0].length).toLowerCase();
   let message = false;
   switch (cmd) {
     case "join":
       words.shift();
-      const room = words.jsoin(" ");
+      const room = words.join(" ");
       this.changeRoom(room);
       break;
     case "nick":
       words.shift();
-      const name = words.jsoin(" ");
+      const name = words.join(" ");
       this.socket.emit("nameAttempt", name);
       break;
     default:

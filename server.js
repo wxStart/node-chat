@@ -44,8 +44,6 @@ function serveStatic(res, cache, absPath) {
             send404(res);
           } else {
             cache[absPath] = data;
-            console.log(absPath);
-            console.log(data);
             sendFile(res, absPath, data);
           }
         });
@@ -67,8 +65,8 @@ const server = http.createServer(function(req, res) {
   serveStatic(res, cache, absPath);
 });
 
-chatServer.listen(server);
-
 server.listen(3000, function() {
   console.log("server listening on port 3000.");
 });
+
+chatServer.listen(server);
